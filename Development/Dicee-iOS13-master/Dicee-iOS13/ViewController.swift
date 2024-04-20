@@ -15,32 +15,18 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-    var leftDiceNumber = 1
-    var rightDiceNumber = 5
 
     @IBAction func rollButtonPressed(_ sender: Any) {
         
-        diceImageViewOne.image =
-        [UIImage(imageLiteralResourceName: "DiceOne"),
-        UIImage(imageLiteralResourceName: "DiceTwo"),
-        UIImage(imageLiteralResourceName: "DiceThree"),
-        UIImage(imageLiteralResourceName: "DiceFour"),
-        UIImage(imageLiteralResourceName: "DiceFive"),
-        UIImage(imageLiteralResourceName: "DiceSix")][leftDiceNumber]
+        let diceArray = [UIImage(imageLiteralResourceName: "DiceOne"),
+                         UIImage(imageLiteralResourceName: "DiceTwo"),
+                         UIImage(imageLiteralResourceName: "DiceThree"),
+                         UIImage(imageLiteralResourceName: "DiceFour"),
+                         UIImage(imageLiteralResourceName: "DiceFive"),
+                         UIImage(imageLiteralResourceName: "DiceSix")]
         
-        leftDiceNumber = leftDiceNumber + 1
-        
-        diceImageViewTwo.image =
-        [UIImage(imageLiteralResourceName: "DiceOne"),
-        UIImage(imageLiteralResourceName: "DiceTwo"),
-        UIImage(imageLiteralResourceName: "DiceThree"),
-        UIImage(imageLiteralResourceName: "DiceFour"),
-        UIImage(imageLiteralResourceName: "DiceFive"),
-        UIImage(imageLiteralResourceName: "DiceSix")][rightDiceNumber]
-        
-        rightDiceNumber = rightDiceNumber - 1
-    
+        diceImageViewOne.image = diceArray.randomElement();
+        diceImageViewTwo.image = diceArray.randomElement();
     }
     
 }
